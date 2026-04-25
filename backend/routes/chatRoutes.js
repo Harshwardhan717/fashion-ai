@@ -16,8 +16,8 @@ router.post("/", async (req, res) => {
 
     // Using the exact ID from your list: gemini-3.1-flash-lite-preview
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-3.1-flash-lite-preview" 
-    });
+    model: "gemini-1.5-flash" 
+      });
 
     const result = await model.generateContent(`
       Instructions: You are an expert Indian fashion stylist for RadhikaShoppy. 
