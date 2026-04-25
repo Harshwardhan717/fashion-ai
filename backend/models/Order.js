@@ -11,7 +11,7 @@ const orderSchema = new mongoose.Schema({
     required: true
   },
   items: [{
-    id: Number,
+    id: String,
     name: String,
     price: Number,
     quantity: Number,
@@ -28,7 +28,7 @@ const orderSchema = new mongoose.Schema({
   },
   paymentMethod: {
     type: String,
-    enum: ["cod", "card"],
+    enum: ["cod", "card", "upi"],
     default: "cod"
   },
   subtotal: Number,
