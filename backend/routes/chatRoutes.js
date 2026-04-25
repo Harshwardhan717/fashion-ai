@@ -14,10 +14,9 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ reply: "Please send a message." });
     }
 
-    // Using the exact ID from your list: gemini-3.1-flash-lite-preview
     const model = genAI.getGenerativeModel({ 
-    model: "gemini-1.5-flash" 
-      });
+      model: "gemini-2.0-flash" 
+    });
 
     const result = await model.generateContent(`
       Instructions: You are an expert Indian fashion stylist for RadhikaShoppy. 
@@ -35,4 +34,5 @@ router.post("/", async (req, res) => {
   }
 });
 
+module.exports = router;
 module.exports = router;
