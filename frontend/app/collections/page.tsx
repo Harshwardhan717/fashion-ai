@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,9 +11,10 @@ import { Input } from "@/components/ui/input";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 
-export default function CollectionsPage() {
+function CollectionsContent() {
   const { addToCart } = useCart();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const searchParams = useSearchParams();
 
   const [collections, setCollections] = useState<any[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
@@ -23,6 +25,12 @@ export default function CollectionsPage() {
   const [sortBy, setSortBy] = useState("featured");
   const [toastNotification, setToastNotification] = useState<{ text: string; productId?: string } | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Read category from URL params
+  useEffect(() => {
+    const cat = searchParams.get("category");
+    if (cat) setSelectedCategory(cat);
+  }, [searchParams]);
 
   // Fetch from MongoDB
   useEffect(() => {
@@ -68,7 +76,6 @@ export default function CollectionsPage() {
 
   const handleFilter = () => {
     let products = [...collections];
-
     if (selectedCategory !== "all") {
       products = products.filter(p => p.category === selectedCategory);
     }
@@ -83,7 +90,6 @@ export default function CollectionsPage() {
     if (sortBy === "price-low") products.sort((a, b) => a.price - b.price);
     else if (sortBy === "price-high") products.sort((a, b) => b.price - a.price);
     else if (sortBy === "rating") products.sort((a, b) => b.rating - a.rating);
-
     setFilteredProducts(products);
   };
 
@@ -328,5 +334,13 @@ export default function CollectionsPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function CollectionsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="w-10 h-10 border-4 border-[#8B4513] border-t-transparent rounded-full animate-spin" /></div>}>
+      <CollectionsContent />
+    </Suspense>
   );
 }

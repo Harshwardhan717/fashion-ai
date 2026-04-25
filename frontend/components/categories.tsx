@@ -9,25 +9,25 @@ const categories = [
     name: "Sarees",
     image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&q=80",
     count: "120+ Products",
-    href: "/products?category=sarees",
+    href: "/collections?category=saree",
   },
   {
     name: "Lehengas",
     image: "https://images.unsplash.com/photo-1594463750939-ebb28c3f7f75?w=600&q=80",
     count: "85+ Products",
-    href: "/products?category=lehengas",
+    href: "/collections?category=lehenga",
   },
   {
     name: "Suits & Kurtis",
     image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&q=80",
     count: "200+ Products",
-    href: "/products?category=suits",
+    href: "/collections?category=kurti",
   },
   {
     name: "Gowns",
     image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80",
     count: "60+ Products",
-    href: "/products?category=gowns",
+    href: "/collections?category=lehenga",
   },
 ];
 
@@ -35,7 +35,6 @@ export function Categories() {
   return (
     <section className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,12 +49,11 @@ export function Categories() {
             Our Collections
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover our curated selection of traditional Indian ethnic wear, 
+            Discover our curated selection of traditional Indian ethnic wear,
             crafted with love and designed for every special occasion.
           </p>
         </motion.div>
 
-        {/* Categories Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {categories.map((category, index) => (
             <motion.div
@@ -73,8 +71,6 @@ export function Categories() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
-                  
-                  {/* Content Overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-4 lg:p-6">
                     <div className="flex items-end justify-between">
                       <div>
