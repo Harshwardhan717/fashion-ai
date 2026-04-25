@@ -86,7 +86,7 @@ function OrderConfirmationContent() {
         localStorage.setItem("lastOrderId", orderId);
 
         const response = await fetch(
-          `http://localhost:5000/api/orders/${encodeURIComponent(orderId)}`
+          `https://fashion-ai-backend-2g7w.onrender.com/api/orders/${encodeURIComponent(orderId)}`
         );
         const data = await response.json();
 

@@ -47,7 +47,7 @@ export default function AdminDashboard() {
   const fetchOrders = async () => {
     setOrdersLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/admin/orders", {
+      const res = await fetch("https://fashion-ai-backend-2g7w.onrender.com/api/admin/orders", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -61,7 +61,7 @@ export default function AdminDashboard() {
 
   const updateStatus = async (orderId: string, newStatus: string) => {
     setUpdatingId(orderId);
-    await fetch(`http://localhost:5000/api/admin/orders/${orderId}/status`, {
+    await fetch(`https://fashion-ai-backend-2g7w.onrender.com/api/admin/orders/${orderId}/status`, {
       method: "PUT",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify({ status: newStatus }),
@@ -88,7 +88,7 @@ export default function AdminDashboard() {
     formData.append("image", image);
 
     try {
-      const res = await fetch("http://localhost:5000/api/admin/products", {
+      const res = await fetch("https://fashion-ai-backend-2g7w.onrender.com/api/admin/products", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,

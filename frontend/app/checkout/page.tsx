@@ -135,7 +135,7 @@ export default function CheckoutPage() {
       };
 
       // Submit order to backend
-      const response = await fetch("http://localhost:5000/api/orders", {
+      const response = await fetch("https://fashion-ai-backend-2g7w.onrender.com/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData),

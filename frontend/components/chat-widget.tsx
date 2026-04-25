@@ -33,7 +33,7 @@ export function ChatWidget() {
 
     try {
       // NOTE: Change this to your live Render backend URL when deploying!
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch("https://fashion-ai-backend-2g7w.onrender.com/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage }),

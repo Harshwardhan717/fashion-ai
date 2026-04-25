@@ -189,7 +189,7 @@ Server running on port 5000
 
 ### 1. Test Sign Up (Create New User)
 ```bash
-curl -X POST http://localhost:5000/api/auth/signup \
+curl -X POST https://fashion-ai-backend-2g7w.onrender.com/api/auth/signup \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Test User",
@@ -200,7 +200,7 @@ curl -X POST http://localhost:5000/api/auth/signup \
 
 ### 2. Test Login
 ```bash
-curl -X POST http://localhost:5000/api/auth/login \
+curl -X POST https://fashion-ai-backend-2g7w.onrender.com/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "admin@gmail.com",
@@ -210,7 +210,7 @@ curl -X POST http://localhost:5000/api/auth/login \
 
 ### 3. Test Get Profile
 ```bash
-curl -X GET http://localhost:5000/api/auth/user/[USER_ID]
+curl -X GET https://fashion-ai-backend-2g7w.onrender.com/api/auth/user/[USER_ID]
 ```
 
 ---
@@ -246,7 +246,7 @@ The frontend already uses the new MongoDB authentication:
 ```javascript
 // AuthContext.tsx handles login/signup
 const login = async (email, password) => {
-  const response = await fetch("http://localhost:5000/api/auth/login", {
+  const response = await fetch("https://fashion-ai-backend-2g7w.onrender.com/api/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password })

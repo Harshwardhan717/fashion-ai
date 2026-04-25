@@ -49,7 +49,7 @@ export default function OrdersPage() {
     const fetchOrders = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/orders/user/${user?.id}`
+          `https://fashion-ai-backend-2g7w.onrender.com/api/orders/user/${user?.id}`
         );
         const data = await response.json();
 

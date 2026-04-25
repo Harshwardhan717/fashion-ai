@@ -26,7 +26,7 @@ export default function CollectionsPage() {
 
   // Fetch from MongoDB
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://fashion-ai-backend-2g7w.onrender.com/api/products")
       .then(res => res.json())
       .then(data => {
         setCollections(data);

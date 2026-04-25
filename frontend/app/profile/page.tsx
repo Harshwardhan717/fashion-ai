@@ -41,7 +41,7 @@ export default function ProfilePage() {
     const fetchProfile = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/auth/user/${user?.id}`
+          `https://fashion-ai-backend-2g7w.onrender.com/api/auth/user/${user?.id}`
         );
         const data = await response.json();
 
@@ -81,7 +81,7 @@ export default function ProfilePage() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/auth/user/${user?.id}`,
+        `https://fashion-ai-backend-2g7w.onrender.com/api/auth/user/${user?.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
